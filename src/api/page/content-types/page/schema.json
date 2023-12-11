@@ -29,7 +29,8 @@
       "components": [
         "section.section-two-columns",
         "section.section-grid",
-        "section.section-content"
+        "section.section-content",
+        "section.section-img"
       ],
       "required": true
     },

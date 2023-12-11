@@ -386,7 +386,8 @@ export interface ApiPagePage extends Schema.CollectionType {
       [
         'section.section-two-columns',
         'section.section-grid',
-        'section.section-content'
+        'section.section-content',
+        'section.section-img'
       ]
     > &
       Attribute.Required;

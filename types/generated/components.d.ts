@@ -41,9 +41,10 @@ export interface SectionImageGrid extends Schema.Component {
   info: {
     displayName: 'image-grid';
     icon: 'landscape';
+    description: '';
   };
   attributes: {
-    image: Attribute.Media & Attribute.Required;
+    image: Attribute.Media;
   };
 }
 
@@ -64,7 +65,7 @@ export interface SectionSectionContent extends Schema.Component {
 export interface SectionSectionGrid extends Schema.Component {
   collectionName: 'components_section_section_grids';
   info: {
-    displayName: 'section_grid';
+    displayName: 'section_grid_text';
     icon: 'grid';
     description: '';
   };
@@ -72,8 +73,21 @@ export interface SectionSectionGrid extends Schema.Component {
     title: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
     text_grid: Attribute.Component<'section.text-grid', true>;
-    image_grid: Attribute.Component<'section.image-grid', true>;
     metadata: Attribute.Component<'section.section-metadata'>;
+  };
+}
+
+export interface SectionSectionImg extends Schema.Component {
+  collectionName: 'components_section_section_imgs';
+  info: {
+    displayName: 'section_grid_img';
+    icon: 'picture';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    img_grid: Attribute.Component<'section.image-grid', true>;
   };
 }
 
@@ -111,7 +125,7 @@ export interface SectionSectionTwoColumns extends Schema.Component {
     description: '';
   };
   attributes: {
-    tilte: Attribute.String &
+    title: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         minLength: 3;
@@ -144,6 +158,7 @@ declare module '@strapi/types' {
       'section.image-grid': SectionImageGrid;
       'section.section-content': SectionSectionContent;
       'section.section-grid': SectionSectionGrid;
+      'section.section-img': SectionSectionImg;
       'section.section-metadata': SectionSectionMetadata;
       'section.section-two-columns': SectionSectionTwoColumns;
       'section.text-grid': SectionTextGrid;
